@@ -6,10 +6,7 @@ M.default_options = {
     register_dir = utils.join_paths(vim.fn.stdpath('state'), 'neovault'),
     prefix = '<C-Q>',
     registers = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"',
-    timeout = {
-        enabled = false,
-        timeoutlen = 2500,
-    },
+    timeout = true,
 }
 
 M.options = {}
