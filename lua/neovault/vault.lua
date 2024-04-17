@@ -9,6 +9,11 @@ Vault.default_options = {
     auto_save = true,
 }
 
+---Create a new Vault
+---@param name string
+---@param opts table | nil
+---@alias Vault table
+---@return Vault
 function Vault.new(name, opts)
     return setmetatable({
         meta = {

@@ -15,7 +15,7 @@ function M.setup()
 
     }
     vim.keymap.set('n', config.options.prefix, function()
-        if not config.timeout then
+        if not config.options.timeout then
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(config.options.prefix, true, true, true), '', false)
         end
     end, opts)

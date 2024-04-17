@@ -13,11 +13,17 @@ function M.setup(opts)
     keymap.setup()
 end
 
+---Create a new vault with a givin name
+---@param name string
+---@return Vault
 function M.create_vault(name)
     M.vaults[name] = vault.new(name)
     return M.vaults[name]
 end
 
+---Get Vault with a givin name
+---@param name any
+---@return Vault
 function M.get_vault(name)
     return M.vaults[name] or M.create_vault(name)
 end
@@ -30,7 +36,6 @@ end
 ---@param action string
 function M.run(action)
     M.action = action
-    vim.print('Select a Register')
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(config.options.prefix, true, true, true), '', false)
 end
 

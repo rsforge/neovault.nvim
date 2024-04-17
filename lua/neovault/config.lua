@@ -2,19 +2,22 @@ local M = {}
 
 local utils = require('neovault.utils')
 
-M.default_options = {
-    register_dir = utils.join_paths(vim.fn.stdpath('state'), 'neovault'),
-    prefix = '<C-Q>',
-    registers = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"',
-    timeout = true,
-}
+---@class Config
+---@field prefix? string
+---@field vault? VaultConfig
 
-M.options = {}
+---@class VaultConfig
+---@field register_path? string | function
+---@field encode? fun(obj: table): string
+---@field decode? fun(str: string): table
 
----Setup all options
----@param opts table
-function M.setup(opts)
-    M.options = opts and vim.tbl_deep_extend('force', (M.default_options or {}), opts) or (M.default_options or {})
+M.defaults = function()
+    return {
+        timeout = true,
+        vault = {
+            register_path = utils.join_paths(vim.fn.stdpath('state'), 'neovault'),
+        }
+    }
 end
 
 return M
