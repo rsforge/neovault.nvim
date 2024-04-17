@@ -34,6 +34,7 @@ end
 
 ---Feed prefix
 ---@param action string
+---@deprecated
 function M.run(action)
     M.action = action
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(config.options.prefix, true, true, true), '', false)
